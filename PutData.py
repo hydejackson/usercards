@@ -14,15 +14,11 @@ def putData(filename, details: list):
     counterVar = 0
     tempTextList = []
 
-    print(details)
-    print(len(docTable[0].rows))
-    print(len(docTable[0].columns))
-
     #make list of string of text to add to each cell
     for d in range(len(details)):
         tempText = \
-        "Name: " + details[d][0] + "\n" + \
-        "Username: " + details[d][1] + "\n" + \
+        "Name: " + details[d][0] + "\n\n" + \
+        "Username: " + details[d][1] + "\n\n" + \
         "Password: " + details[d][2]
 
         tempTextList.append(tempText)
@@ -33,12 +29,10 @@ def putData(filename, details: list):
         for i in range(len(d.rows)):
             for j in range(len(d.columns)):
                 d.cell(i, j).text = tempTextList[counterVar]
-                print(str(i) + ", " + str(j))
                 if counterVar > len(details) - 1:
                     break
                 else:
                     counterVar = counterVar + 1
-                print(counterVar)
             if counterVar > len(details) - 1:
                 break
         
