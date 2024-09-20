@@ -29,16 +29,17 @@ def putData(filename, details: list):
 
     #idea for this is to cycle through each row/column coord and change text to an entry in the tempTextList
     #I'm using the counterVar to keep track but it doesn't seem to be working well
-    for i in range(len(docTable[counterVar//10].rows)):
-        for j in range(len(docTable[counterVar//10].columns)):
-            docTable[counterVar//10].cell(i, j).text = tempTextList[counterVar]
-            counterVar = counterVar + 1
-            if counterVar > len(details):
+    for d in docTable:
+        for i in range(len(d.rows)):
+            for j in range(len(d.columns)):
+                d.cell(i, j).text = tempTextList[counterVar]
+                print(str(i) + ", " + str(j))
+                if counterVar > len(details) - 1:
+                    break
+                else:
+                    counterVar = counterVar + 1
+                print(counterVar)
+            if counterVar > len(details) - 1:
                 break
-            print(counterVar)
-        counterVar = counterVar + 1
-        if counterVar > len(details):
-            break
-        print(counterVar)
         
     document.save(filename)
