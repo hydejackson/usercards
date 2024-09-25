@@ -20,7 +20,7 @@ import CreateFile as cF
 import PasswordGenerator as pG
 import PutData as pD
 
-with open('config', 'r', encoding='utf-16') as c:
+with open('config', 'r', encoding='utf-8') as c:
     excel = c.readline()[0:-1]
     word = c.readline()
 

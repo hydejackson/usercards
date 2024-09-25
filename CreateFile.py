@@ -53,5 +53,3 @@ def createFile(fileName, cards):
     shutil.rmtree("./temp/")
 
     return ("new" + fileName)
-
-createFile("cards.docx", 19)
