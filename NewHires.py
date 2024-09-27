@@ -20,21 +20,26 @@ import CreateFile as cF
 import PasswordGenerator as pG
 import PutData as pD
 
-with open('config', 'r', encoding='utf-8') as c:
-    excel = c.readline()[0:-1]
-    word = c.readline()
+def main():
 
-sourceExcel = excel
-sourceWord = word
+    with open('config', 'r', encoding='utf-8') as c:
+        excel = c.readline()[0:-1]
+        word = c.readline()
 
-testobj = cC.colClass(rE.readExcel(sourceExcel), ['User ID', 'Requested for'])
+    sourceExcel = excel
+    sourceWord = word
 
-rows = rC.rowClass(testobj)
+    testobj = cC.colClass(rE.readExcel(sourceExcel), ['User ID', 'Requested for'])
 
-details = rows
-passwords = pG.passwordGenerator("randomwords.csv", len(rows))
-for i in range(len(rows)):
-    details[i].append(passwords[i])
+    rows = rC.rowClass(testobj)
 
-newFile = cF.createFile(sourceWord, len(details))
-pD.putData(newFile, details)
+    details = rows
+    passwords = pG.passwordGenerator("randomwords.csv", len(rows))
+    for i in range(len(rows)):
+        details[i].append(passwords[i])
+
+    newFile = cF.createFile(sourceWord, len(details))
+    pD.putData(newFile, details)
+
+if __name__ == "__main__":
+    main()
