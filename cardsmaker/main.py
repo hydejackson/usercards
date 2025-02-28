@@ -9,6 +9,7 @@ Steps:
 References:
 Word: https://python-docx.readthedocs.io/en/latest/
 Excel: https://pandas.pydata.org/docs/reference/index.html#api
+Icon by Jack Cai at Freeimages.com
 """
 
 import os

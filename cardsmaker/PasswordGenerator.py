@@ -12,7 +12,15 @@ def passwordGenerator(filename, length):
     file.close()
 
     passwords = []
+    partTwo = ''
     for i in range(length):
-        passwords.append(random.choice(data)[0] + str(random.randint(100, 999)))
+        partOne = random.choice(data)[0]
+        partTwo = random.choice(data)[0][:3]
+        randomSplit = random.randint(1, len(partOne)-1)
+        partOneSplit = partOne[:randomSplit] + random.choice(['-', '!', '?', '@', '$']) + partOne[randomSplit:]
+        parts = partOneSplit + partTwo
+        passwords.append(parts + str(random.randint(100, 999)))
+
+        partTwo = ''
 
     return passwords
